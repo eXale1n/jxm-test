@@ -63,7 +63,7 @@ Qualtrics.SurveyEngine.addOnReady(function () {
 	console.log("   selected valence messages:", msgs);
 
 	// construct iframe url with game settings
-	var src = "https://jxmis0n.github.io/TetrisExperiment/"
+	var src = "https://github.com/eXale1n/jxm-test"
 		+ "?competition=" + encodeURIComponent(competition)
 		+ "&valence="     + encodeURIComponent(valence)
 		+ "&mode="        + encodeURIComponent(mode)
