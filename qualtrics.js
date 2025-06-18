@@ -69,7 +69,7 @@ Qualtrics.SurveyEngine.addOnReady(function () {
 	var isMobile = window.innerWidth <= 480 ||
 		/Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/.test(navigator.userAgent);
 	var style = isMobile
-		? "font-family:sans-serif;width:315px;height:600px;overflow:hidden;margin:0 auto;"
+		? "font-family:sans-serif;width:100%;height:600px;overflow:hidden;margin:0 auto;"
 		: "font-family:sans-serif;width:130vh;height:90vh;overflow:hidden;";
 
 	// inject iframe
