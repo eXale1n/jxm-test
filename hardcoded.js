@@ -119,7 +119,7 @@ Qualtrics.SurveyEngine.addOnReady(function() {
 		// this is so dirty i hate myself for it...
 		var style = isMobile
 			? "width:calc(100% + 20px);height:600px;overflow:hidden;margin:0 0 -30px -10px;"
-			: "width:130vh;height:90vh;overflow:hidden;";
+			: "width:120vh;height:90vh;overflow:hidden;";
 
 		var html = '<div style="' + style + '">'
 			+ '<iframe src="' + src + '" '
