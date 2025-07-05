@@ -715,7 +715,9 @@
         startCountdown();
       } else {
         // after two rounds, go on to the next section
-        jQuery('#NextButton').click();
+        window.parent.document
+              .getElementById('NextButton')
+              .click();
         // or if you want to just reload
         // location.reload();
       }
