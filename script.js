@@ -1,4 +1,7 @@
 (function() {  // --- Parameters & Device Detection ---
+
+  let plays = 0;
+
   const params      = new URLSearchParams(location.search);
   const competitionRaw = params.get('competition') || 'Low';
   const competition = competitionRaw.toLowerCase();
@@ -495,6 +498,7 @@
       if (!window.player.gameOver) {
         requestAnimationFrame(gameLoop);
       } else {
+        plays++;
         showSoloGameOver();
       }
     } else {
@@ -684,8 +688,10 @@
     score.style.fontWeight = 'bold';
     score.style.color = '#4ecdc4';
 
+    // playAgain should just be btn or something for clarity but I ain't changing that for now..
     const playAgain = document.createElement('button');
-    playAgain.textContent = 'Play Again';
+    const isFinal = plays >= 2;
+    playAgain.textContent = isFinal ? 'Continue' : 'Play Again';
     Object.assign(playAgain.style, {
       backgroundColor: '#4ecdc4',
       color: '#1e1e2f',
@@ -700,7 +706,19 @@
     });
 
     playAgain.addEventListener('click', () => {
-      location.reload();
+      document.body.removeChild(box);   // hide overlay
+
+      if (!isFinal) {
+        // restart round 2
+        window.player = new TetrisBoard('playerCanvas', 'human');
+        lastTime = performance.now();
+        startCountdown();
+      } else {
+        // after two rounds, go on to the next section
+        jQuery('#NextButton').click();
+        // or if you want to just reload
+        // location.reload();
+      }
     });
 
     playAgain.addEventListener('mouseover', () => {
